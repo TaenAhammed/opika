@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  node-service:
+    build: ./node-service
+    ports:
+      - 3000:3000
+    networks:
+      - microservice
+
+  python-service:
+    build: ./python-service
+    ports:
+      - 4000:4000
+    networks:
+      - microservice
+
+  go-service:
+    build: ./go-service
+    ports:
+      - 6000:6000
+    networks:
+      - microservice
+
+networks:
+  microservice:

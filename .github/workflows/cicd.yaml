@@ -5,6 +5,7 @@ on:
       - main
     paths:
       - Test2/app/**
+      - .github/workflows/**
 
 jobs:
   build:

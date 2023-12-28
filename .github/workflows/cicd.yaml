@@ -16,11 +16,12 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Change directory
-        run: cd Test2/app
-
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd Test2/app
+          npm install
 
       - name: Run unit test
-        run: npm test
+        run: |
+          cd Test2/app
+          npm test

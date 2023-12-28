@@ -43,7 +43,7 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /Test2/app
             git pull
+            cd /Test2/app
             npm install
             npm run start

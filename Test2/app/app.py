@@ -3,7 +3,7 @@ import socketserver
 import signal
 import sys
 
-PORT = 8000
+PORT = 3000
 
 class MyHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):

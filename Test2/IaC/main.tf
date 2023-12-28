@@ -145,7 +145,6 @@ resource "aws_instance" "taen_web_server" {
     device_index = 0
     network_interface_id = aws_network_interface.taen_network_interface.id
   }
-
   tags = {
     Name = "taen_web_server"
   }

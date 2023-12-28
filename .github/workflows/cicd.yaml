@@ -37,22 +37,13 @@ jobs:
           node-version: "20"
 
       - name: Deploy to ec2
-        uses: appleboy/ssh-action@master
+        uses: easingthemes/ssh-deploy@main
         with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            #!/bin/bash
-            # Update the instance
-            sudo yum update -y
-
-            # Install Git
-            sudo yum install git -y
-
-            # Install Node.js
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-            . ~/.nvm/nvm.sh
-            nvm install node
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SOURCE: "Test2/app"
+          SCRIPT_AFTER: |
+            ls -la
             npm install
             npm run start

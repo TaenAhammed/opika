@@ -138,7 +138,7 @@ resource "aws_key_pair" "taen_key" {
 
 # Create an web server
 resource "aws_instance" "taen_web_server" {
-  ami = "ami-0e4b5d31e60aa0acd" #Amazon Linux 2023 AMI
+  ami = "ami-0fa377108253bf620" #Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-12-07
   instance_type = "t2.micro"
   key_name = "taen_key"
   network_interface {
@@ -148,8 +148,8 @@ resource "aws_instance" "taen_web_server" {
 
   user_data = <<-EOF
               #!/bin/bash
-              curl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -
-              sudo yum install -y nodejs
+              curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+              sudo apt-get install -y nodejs
               EOF
   tags = {
     Name = "taen_web_server"

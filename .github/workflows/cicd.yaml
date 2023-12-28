@@ -41,4 +41,4 @@ jobs:
           SOURCE: "Test2/app"
           SCRIPT_AFTER: |
             cd app
-            python3 app.py
+            python3 app.py &

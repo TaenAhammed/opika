@@ -145,6 +145,12 @@ resource "aws_instance" "taen_web_server" {
     device_index = 0
     network_interface_id = aws_network_interface.taen_network_interface.id
   }
+
+  user_data = <<-EOF
+              #!/bin/bash
+              curl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -
+              sudo yum install -y nodejs
+              EOF
   tags = {
     Name = "taen_web_server"
   }

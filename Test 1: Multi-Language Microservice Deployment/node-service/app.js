@@ -17,12 +17,7 @@ app.post("/sort", async (req, res) => {
     { data }
   );
 
-  // const sortedData = { sortedData: pythonServiceResponse.data };
-
-  // const reqData = { data, sortedData };
-
   const goServiceResponse = await axios.post("http://go-service:6000/log", {
-    // reqData,
     unSortedData: data,
     sortedData: pythonServiceResponse.data,
   });

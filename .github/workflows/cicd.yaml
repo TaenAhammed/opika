@@ -24,4 +24,5 @@ jobs:
       - name: Run unit test
         run: |
           cd Test2/app
+          ln -s ./node_modules/.bin/jest jest
           npm test

@@ -146,9 +146,6 @@ resource "aws_instance" "taen_web_server" {
     network_interface_id = aws_network_interface.taen_network_interface.id
   }
 
-  user_data = <<-EOF
-              sudo apt install python3-pip -y
-              EOF
   tags = {
     Name = "taen_web_server"
   }

@@ -8,18 +8,10 @@ on:
       - .github/workflows/**
 
 jobs:
-  build-and-test:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-
-      - name: Install dependencies
-        run: |
-          cd Test2/app
-          pip3 install -r requirements.txt
 
       - name: Run unit test
         run: |
@@ -28,7 +20,7 @@ jobs:
 
   deploy-to-ec2:
     runs-on: ubuntu-latest
-    needs: build-and-test
+    needs: test
     steps:
       - uses: actions/checkout@v4
 

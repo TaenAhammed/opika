@@ -122,6 +122,7 @@ resource "aws_network_interface" "taen_network_interface" {
 # Create an Elastic IP for the network interface
 resource "aws_eip" "taen_eip" {
   network_interface = aws_network_interface.taen_network_interface.id
+  depends_on = [ aws_instance.taen_web_server ]
 }
 
 # Output the Elastic IP

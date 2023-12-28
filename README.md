@@ -15,26 +15,26 @@ Taen__DevOps-Engineer-Test
 
 ### Test 1: Multi-Language Microservice Deployment:
 
-**Simply execute this command to spin up the microservices:**
+**Execute this command to spin up the microservices:**
 
 ```bash
-docker compose up
+docker-compose up
 ```
 
-The each services `localhost:PORT` route send greeting message
+Each service's `localhost:PORT` route sends greeting messages.
 
 **_Here is the list of directories with service documentation:_**
 
 **1.1 node-service:**
 
 This service runs on port `3000`.
-Primarily accepts POST requests on `localhost:3000/sort` route and requires the data payload like shape below for giving successful response:
+Primarily accepts POST requests on the `localhost:3000/sort` route and requires the data payload like the shape below for giving a successful response:
 
 ```json
 { "data": [1, 5, 3, 4, 2] } // Request payload
 ```
 
-After successfully forwarding requests to **python-service** and **go-service** the service return response like below:
+After successfully forwarding requests to **python-service** and **go-service** the service returns response like the below:
 
 ```json
 {
@@ -45,7 +45,7 @@ After successfully forwarding requests to **python-service** and **go-service** 
 **1.2 python-service:**
 
 This service runs on port `4000`.
-Primarily accepts POST requests on `localhost:4000/sort` with unsorted data and return sorted data as a response.
+Primarily accepts POST requests on `localhost:4000/sort` with unsorted data and returns sorted data as a response.
 
 **1.3 go-service:**
 
@@ -56,11 +56,12 @@ Primarily accepts POST request on `localhost:6000/log` with both unsorted and so
 2023/12/28 22:16:11 Received: [1 5 3 4 2], Sorted: [1 2 3 4 5], Time: 2023-12-28 22:16:11.360173303 +0000 UTC m=+4.723929545
 ```
 
-This service finally return a json response that we get when we call the **node-service**.
+This service finally returns a JSON response we get when we call the **node-service**.
 
 ### Test2:
 
-**2.1 app:** The basic web application is written in python with a basic unit test.
+**2.1 app:** The basic web application is written in Python with a basic unit test.
+The application runs on the `3000` port.
 
 **To install application dependencies:**
 
@@ -96,9 +97,9 @@ taen_eip = "52.220.123.143"
 ```
 
 **2.3 .github/workflows/**
-This directory contain the CICD pipeline test the basic python app and deploy that to EC2.
+This directory contains the CICD pipeline to test and deploy the basic Python app to EC2.
 
-**To run the CICD workflow successfully we've to setup some secret in GitHub like:**
+**To run the CICD workflow successfully we've to set some secrets in GitHub like:**
 
 ```bash
   SSH_PRIVATE_KEY: <THE_PRIVATE_KEY_OF_THE_PUBLIC_KEY_THAT_WE_ADDED_AS_A_KEY_PAIR_IN_EC2>
@@ -107,3 +108,13 @@ This directory contain the CICD pipeline test the basic python app and deploy th
 
   REMOTE_USER: ubuntu
 ```
+
+**Visit your application on live**
+
+```bash
+<REMOTE_HOST:3000>
+```
+
+You will get a response called `Hello World!`
+
+`Chears!`

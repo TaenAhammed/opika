@@ -147,9 +147,7 @@ resource "aws_instance" "taen_web_server" {
   }
 
   user_data = <<-EOF
-              #!/bin/bash
-              curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-              sudo apt-get install -y nodejs
+              sudo apt install python3-pip -y
               EOF
   tags = {
     Name = "taen_web_server"

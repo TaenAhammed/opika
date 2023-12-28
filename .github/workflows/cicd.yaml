@@ -37,12 +37,13 @@ jobs:
           node-version: "20"
 
       - name: Deploy to ec2
-        uses: easingthemes/ssh-deploy@main
+        uses: appleboy/ssh-action@master
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          SOURCE: "Test2/app"
-          SCRIPT_AFTER: |
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /Test2/app
+            git pull
             npm install
             npm run start
